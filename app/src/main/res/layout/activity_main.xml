@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/galaxy_background"
+    android:orientation="vertical"
+
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Выберите профессию:"
+        android:textAlignment="center"
+        android:textColor="#EEEEEE"
+        android:fontFamily="@font/font1"
+        android:textSize="30dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/button_corners"
+            android:textSize="17dp"
+            android:text="Инженер по эксплуатации атомных электростанций"
+            android:fontFamily="@font/font1"
+            android:layout_margin="15dp"
+            android:id="@+id/b1"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/button_corners"
+            android:textSize="17dp"
+            android:text="Инженер по радиационной безопасности"
+            android:fontFamily="@font/font1"
+            android:layout_margin="15dp"
+            android:id="@+id/b2"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/button_corners"
+            android:textSize="17dp"
+            android:text="Специалист по ядерной медицине"
+            android:fontFamily="@font/font1"
+            android:layout_margin="15dp"
+            android:id="@+id/b3"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/button_corners"
+            android:textSize="17dp"
+            android:text="Инженер по ядерному топливу"
+            android:fontFamily="@font/font1"
+            android:layout_margin="15dp"
+            android:id="@+id/b4"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/button_corners"
+            android:textSize="17dp"
+            android:text="Физик-ядерщик"
+            android:fontFamily="@font/font1"
+            android:layout_margin="15dp"
+            android:id="@+id/b5"
+
+            />
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
