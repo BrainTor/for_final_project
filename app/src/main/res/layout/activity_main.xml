@@ -124,7 +124,7 @@
                     android:layout_height="40dp"
                     android:background="@drawable/back"
                     android:onClick="back"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="30dp"
 
                     >
@@ -205,7 +205,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -226,8 +226,9 @@
 
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="20dp"
-                    android:textSize="17dp"
+                    android:textSize="22dp"
                     android:textColor="#EEEEEE"
+                    android:justificationMode="inter_word"
                     android:id="@+id/prof_text"
                     android:fontFamily="@font/font1"
                     >
@@ -255,7 +256,8 @@
                 android:id="@+id/prof_quest"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
-                android:textSize="27dp"
+                android:textSize="22dp"
+                android:layout_marginRight="10dp"
                 android:justificationMode="inter_word"
                 android:textColor="#EEEEEE"
                 android:fontFamily="@font/font1"
@@ -268,8 +270,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_weight="1.4"
             android:orientation="vertical"
+
             >
             <LinearLayout
                 android:layout_width="match_parent"
@@ -279,13 +282,24 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/an1"
+                    android:onClick="answer"
+
                     android:text="1"
+                    android:layout_margin="7dp"
                     />
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="7dp"
+
                     android:text="1"
+                    android:id="@+id/an2"
+                    android:onClick="answer"
+
                     />
 
 
@@ -299,13 +313,25 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/an3"
                     android:text="1"
+
+                    android:layout_margin="7dp"
+                    android:onClick="answer"
+
                     />
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:text="1"
+
+                    android:layout_margin="7dp"
+                    android:id="@+id/an4"
+
+                    android:onClick="answer"
                     />
 
 
@@ -314,7 +340,138 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/good"
+        android:visibility="gone"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Хорошо"
+            android:textAlignment="center"
+            android:layout_marginTop="20dp"
+            android:textColor="#EEEEEE"
+            android:fontFamily="@font/font1" android:textSize="30dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="1"
+            >
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/middle"
 
+                >
+
+            </ImageView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="2"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Вы хорошо справились с тестом!"
+                android:textAlignment="center"
+
+                android:layout_margin="20dp"
+                android:textColor="#EEEEEE"
+                android:fontFamily="@font/font1" android:textSize="30dp"
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Другая профессия"
+                android:onClick="back_from_res"
+                android:layout_margin="20dp"
+                android:fontFamily="@font/font1" android:textSize="20dp"
+                >
+
+            </Button>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/window_best"
+        android:visibility="gone"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Отлично"
+            android:textAlignment="center"
+            android:layout_marginTop="20dp"
+            android:textColor="#EEEEEE"
+            android:fontFamily="@font/font1" android:textSize="30dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="1"
+            >
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/happy"
+
+                >
+
+            </ImageView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="2"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Вы отлично справились с тестом!"
+                android:textAlignment="center"
+
+                android:layout_margin="20dp"
+                android:textColor="#EEEEEE"
+                android:fontFamily="@font/font1" android:textSize="30dp"
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Другая профессия"
+                android:onClick="back_from_res"
+                android:layout_margin="20dp"
+                android:fontFamily="@font/font1" android:textSize="20dp"
+                >
+
+            </Button>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
 
 </LinearLayout>

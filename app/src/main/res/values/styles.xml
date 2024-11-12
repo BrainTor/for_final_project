@@ -1,0 +1,7 @@
+<!-- res/values/styles.xml -->
+<resources>
+    <!-- Базовая пользовательская тема -->
+    <style name="AppTheme.Custom" parent="android:Theme.Material.NoActionBar">
+        <!-- Здесь можно добавлять дополнительные стили, если необходимо -->
+    </style>
+</resources>
