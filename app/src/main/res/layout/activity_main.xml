@@ -1,197 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/galaxy_background"
-    android:orientation="vertical"
-
     tools:context=".MainActivity">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="visible"
-        android:id="@+id/location_main"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Выберите профессию:"
-            android:textAlignment="center"
-            android:textColor="#EEEEEE"
-            android:fontFamily="@font/font1"
-            android:textSize="30dp"
-            android:layout_marginTop="20dp"
-            />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center"
-            >
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="@drawable/button_corners"
-                android:textSize="17dp"
-                android:text="Инженер по эксплуатации атомных электростанций"
-                android:fontFamily="@font/font1"
-                android:layout_margin="15dp"
-                android:onClick="select_quetion"
-                android:id="@+id/b1"
-                />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="@drawable/button_corners"
-                android:textSize="17dp"
-                android:text="Инженер по радиационной безопасности"
-                android:fontFamily="@font/font1"
-                android:onClick="select_quetion"
-                android:layout_margin="15dp"
-                android:id="@+id/b2"
-
-                />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="@drawable/button_corners"
-                android:textSize="17dp"
-                android:text="Специалист по ядерной медицине"
-                android:fontFamily="@font/font1"
-                android:layout_margin="15dp"
-                android:onClick="select_quetion"
-                android:id="@+id/b3"
-
-                />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="@drawable/button_corners"
-                android:textSize="17dp"
-                android:text="Инженер по ядерному топливу"
-                android:onClick="select_quetion"
-                android:fontFamily="@font/font1"
-                android:layout_margin="15dp"
-                android:id="@+id/b4"
-
-                />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="@drawable/button_corners"
-                android:textSize="17dp"
-                android:text="Физик-ядерщик"
-                android:fontFamily="@font/font1"
-                android:onClick="select_quetion"
-                android:layout_margin="15dp"
-                android:id="@+id/b5"
-
-                />
-
-
-        </LinearLayout>
-
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/galaxy_background"
         android:orientation="vertical"
-        android:id="@+id/location_quest"
-        android:visibility="gone"
+
         >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:background="@color/white"
+            android:gravity="right"
             >
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/sound"
+                android:layout_margin="10px"
+                android:src="@drawable/sound"
+                android:onClick="control_music"
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:id="@+id/location_main"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Выберите профессию:"
+                android:textAlignment="center"
+                android:textColor="#EEEEEE"
+                android:fontFamily="@font/font1"
+                android:textSize="30dp"
+                android:layout_marginTop="20dp"
+                />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
                 >
-                <ImageButton
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/back"
-                    android:onClick="back"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="30dp"
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@drawable/button_corners"
+                    android:textSize="17dp"
+                    android:text="Инженер по эксплуатации атомных электростанций"
+                    android:fontFamily="@font/font1"
+                    android:layout_margin="15dp"
+                    android:onClick="select_quetion"
+                    android:id="@+id/b1"
+                    />
 
-                    >
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@drawable/button_corners"
+                    android:textSize="17dp"
+                    android:text="Инженер по радиационной безопасности"
+                    android:fontFamily="@font/font1"
+                    android:onClick="select_quetion"
+                    android:layout_margin="15dp"
+                    android:id="@+id/b2"
 
-                </ImageButton>
+                    />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@drawable/button_corners"
+                    android:textSize="17dp"
+                    android:text="Специалист по ядерной медицине"
+                    android:fontFamily="@font/font1"
+                    android:layout_margin="15dp"
+                    android:onClick="select_quetion"
+                    android:id="@+id/b3"
+
+                    />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@drawable/button_corners"
+                    android:textSize="17dp"
+                    android:text="Инженер по ядерному топливу"
+                    android:onClick="select_quetion"
+                    android:fontFamily="@font/font1"
+                    android:layout_margin="15dp"
+                    android:id="@+id/b4"
+
+                    />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@drawable/button_corners"
+                    android:textSize="17dp"
+                    android:text="Физик-ядерщик"
+                    android:fontFamily="@font/font1"
+                    android:onClick="select_quetion"
+                    android:layout_margin="15dp"
+                    android:id="@+id/b5"
+
+                    />
+
+
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="2.2"
-                android:orientation="horizontal"
-                android:layout_marginTop="30dp"
-                android:gravity="start|end"
-
-                >
-                <ImageButton
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/star"
-
-                    >
-
-                </ImageButton>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/lvl_text"
-                    android:text="0"
-                    android:textSize="22dp"
-                    android:textColor="#EEEEEE"
-                    android:fontFamily="@font/font1"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginLeft="10dp"
-                    >
-
-                </TextView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:text="/"
-                    android:textSize="22dp"
-                    android:textColor="#EEEEEE"
-                    android:fontFamily="@font/font1"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginLeft="10dp"
-                    >
-
-                </TextView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:text="5"
-                    android:textSize="22dp"
-                    android:textColor="#EEEEEE"
-                    android:fontFamily="@font/font1"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginLeft="10dp"
-                    >
-
-                </TextView>
-            </LinearLayout>
 
         </LinearLayout>
 
@@ -199,18 +128,151 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:gravity="center"
-            android:layout_weight="1"
+            android:id="@+id/location_quest"
+            android:visibility="gone"
             >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp"
                 >
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    >
+                    <ImageButton
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/back"
+                        android:onClick="back"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="30dp"
+
+                        >
+
+                    </ImageButton>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.2"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="30dp"
+                    android:gravity="start|end"
+
+                    >
+                    <ImageButton
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/atom"
+
+                        >
+
+                    </ImageButton>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/lvl_text"
+                        android:text="0"
+                        android:textSize="22dp"
+                        android:textColor="#EEEEEE"
+                        android:fontFamily="@font/font1"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginLeft="10dp"
+                        >
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="/"
+                        android:textSize="22dp"
+                        android:textColor="#EEEEEE"
+                        android:fontFamily="@font/font1"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginLeft="10dp"
+                        >
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="5"
+                        android:textSize="22dp"
+                        android:textColor="#EEEEEE"
+                        android:fontFamily="@font/font1"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginLeft="10dp"
+                        >
+
+                    </TextView>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1"
+                >
+
+                <ImageView
+                    android:id="@+id/image_quest"
+                    android:layout_width="match_parent"
+                    android:layout_height="400px"
+                    android:maxHeight="400dp"
+                    android:layout_weight="1"
+                    >
+
+                </ImageView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Профессия:"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Профессия:"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="22dp"
+                        android:textFontWeight="900"
+                        android:textColor="#EEEEEE"
+                        android:fontFamily="@font/font1"
+                        >
+
+                    </TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:textSize="22dp"
+                        android:textColor="#EEEEEE"
+                        android:justificationMode="inter_word"
+                        android:id="@+id/prof_text"
+                        android:fontFamily="@font/font1"
+                        >
+
+                    </TextView>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Вопрос:"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="20dp"
                     android:textSize="22dp"
@@ -220,258 +282,342 @@
                     >
 
                 </TextView>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/prof_quest"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_margin="10dp"
                     android:textSize="22dp"
-                    android:textColor="#EEEEEE"
+
                     android:justificationMode="inter_word"
-                    android:id="@+id/prof_text"
+                    android:textColor="#EEEEEE"
                     android:fontFamily="@font/font1"
                     >
 
                 </TextView>
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Вопрос:"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:textSize="22dp"
-                android:textFontWeight="900"
-                android:textColor="#EEEEEE"
-                android:fontFamily="@font/font1"
-                >
-
-            </TextView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/prof_quest"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:textSize="22dp"
-                android:layout_marginRight="10dp"
-                android:justificationMode="inter_word"
-                android:textColor="#EEEEEE"
-                android:fontFamily="@font/font1"
-                >
-
-            </TextView>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.4"
-            android:orientation="vertical"
-
-            >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:id="@+id/an1"
-                    android:onClick="answer"
-
-                    android:text="1"
-                    android:layout_margin="7dp"
-                    />
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_margin="7dp"
-
-                    android:text="1"
-                    android:id="@+id/an2"
-                    android:onClick="answer"
-
-                    />
-
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-                <Button
+                android:layout_weight="1.4"
+                android:orientation="vertical"
+
+                >
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:id="@+id/an3"
-                    android:text="1"
+                    android:orientation="horizontal"
+                    android:layout_weight="1">
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/an1"
+                        android:onClick="answer"
+                        android:text="1"
+                        android:layout_margin="7dp"
+                        />
 
-                    android:layout_margin="7dp"
-                    android:onClick="answer"
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_margin="7dp"
 
-                    />
+                        android:text="1"
+                        android:id="@+id/an2"
+                        android:onClick="answer"
 
-                <Button
+                        />
+
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="1"
+                    android:orientation="horizontal"
+                    android:layout_weight="1">
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/an3"
+                        android:text="1"
 
-                    android:layout_margin="7dp"
-                    android:id="@+id/an4"
+                        android:layout_margin="7dp"
+                        android:onClick="answer"
 
-                    android:onClick="answer"
+                        />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="1"
+
+                        android:layout_margin="7dp"
+                        android:id="@+id/an4"
+
+                        android:onClick="answer"
+                        />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/window_best"
+            android:visibility="gone"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Отлично"
+                android:textAlignment="center"
+                android:layout_marginTop="20dp"
+                android:textColor="#EEEEEE"
+                android:fontFamily="@font/font1" android:textSize="30dp"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1"
+                >
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:src="@drawable/happy"
+
+                    >
+
+                </ImageView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="2"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Вы отлично справились с тестом!"
+                    android:textAlignment="center"
+                    android:layout_margin="20dp"
+                    android:textColor="#EEEEEE"
+                    android:fontFamily="@font/font1" android:textSize="30dp"
                     />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        android:text="Другая профессия"
+                        android:onClick="back_from_res"
+                        android:fontFamily="@font/font1" android:textSize="20dp"
+                        >
+                    </Button>
 
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Скачать сертификат"
+                        android:layout_weight="1"
+                        android:onClick="open_web"
+                        android:fontFamily="@font/font1" android:textSize="20dp"
+                        >
+
+                    </Button>
+                </LinearLayout>
 
             </LinearLayout>
-        </LinearLayout>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:id="@+id/good"
-        android:visibility="gone"
-        >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Хорошо"
-            android:textAlignment="center"
-            android:layout_marginTop="20dp"
-            android:textColor="#EEEEEE"
-            android:fontFamily="@font/font1" android:textSize="30dp"
-            />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_weight="1"
-            >
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:src="@drawable/middle"
-
-                >
-
-            </ImageView>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="2"
+            android:id="@+id/good"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:layout_weight=".1"
             >
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Вы хорошо справились с тестом!"
+                android:text="Хорошо"
                 android:textAlignment="center"
-
-                android:layout_margin="20dp"
+                android:layout_marginTop="20dp"
                 android:textColor="#EEEEEE"
                 android:fontFamily="@font/font1" android:textSize="30dp"
                 />
-
-            <Button
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Другая профессия"
-                android:onClick="back_from_res"
-                android:layout_margin="20dp"
-                android:fontFamily="@font/font1" android:textSize="20dp"
+                android:gravity="center"
+                android:layout_weight=".3"
+                android:orientation="vertical"
+                >
+                <ImageView
+                    android:layout_width="304dp"
+                    android:layout_height="255dp"
+                    android:src="@drawable/middle"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Вы хорошо справились с тестом!"
+                    android:textAlignment="center"
+                    android:layout_margin="20dp"
+                    android:textColor="#EEEEEE"
+                    android:fontFamily="@font/font1" android:textSize="30dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center"
                 >
 
-            </Button>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.3"
+                    android:layout_gravity="bottom"
+                    >
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:text="Другая профессия"
+                        android:layout_weight="1"
+                        android:onClick="back_from_res"
+                        android:fontFamily="@font/font1" android:textSize="20dp"
+                        >
+                    </Button>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        android:text="Скачать сертификат"
+                        android:onClick="open_web"
+                        android:fontFamily="@font/font1"
+                        android:textSize="20dp"
+                        >
+                    </Button>
+                </LinearLayout>
+
+            </LinearLayout>
 
 
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:id="@+id/window_best"
-        android:visibility="gone"
-        >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Отлично"
-            android:textAlignment="center"
-            android:layout_marginTop="20dp"
-            android:textColor="#EEEEEE"
-            android:fontFamily="@font/font1" android:textSize="30dp"
-            />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_weight="1"
-            >
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:src="@drawable/happy"
-
-                >
-
-            </ImageView>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="2"
+            android:id="@+id/bad_window"
+            android:visibility="gone"
             >
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Вы отлично справились с тестом!"
+                android:text="Плохо"
                 android:textAlignment="center"
-
-                android:layout_margin="20dp"
+                android:layout_marginTop="20dp"
                 android:textColor="#EEEEEE"
                 android:fontFamily="@font/font1" android:textSize="30dp"
                 />
-
-            <Button
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Другая профессия"
-                android:onClick="back_from_res"
-                android:layout_margin="20dp"
-                android:fontFamily="@font/font1" android:textSize="20dp"
+                android:gravity="center"
+                android:layout_weight="1"
                 >
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/sad"
+                    >
+                </ImageView>
+            </LinearLayout>
 
-            </Button>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="2"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Вам нужно больше тренироваться"
+                    android:textAlignment="center"
+                    android:layout_margin="20dp"
+                    android:textColor="#EEEEEE"
+                    android:fontFamily="@font/font1" android:textSize="30dp"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:text="Другая профессия"
+                        android:onClick="back_from_res"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/font1" android:textSize="20dp"
+                        >
+                    </Button>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        android:text="Скачать сертификат"
+                        android:onClick="open_web"
+                        android:fontFamily="@font/font1" android:textSize="20dp"
+                        >
+                    </Button>
+                </LinearLayout>
 
+            </LinearLayout>
 
         </LinearLayout>
-
 
     </LinearLayout>
 
 
-</LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/animation_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</FrameLayout>

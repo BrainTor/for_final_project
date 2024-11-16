@@ -2,14 +2,21 @@ package com.example.forthefinal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.Animator;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.media.Image;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,19 +26,22 @@ public class MainActivity extends AppCompatActivity {
     final int[] ids_vars = {R.id.an1, R.id.an2, R.id.an3, R.id.an4};
     int current_lvl = 0;
     int stars = 0;
+    ImageView image_quest;
     Question question = null;
     LinearLayout current_window = null;
     String[] questions;
     String[][] varinats;
     int[] correct_variant;
-
+    FrameLayout animation_container;
     Button an1, an2, an3, an4;
 
     LinearLayout location_main, location_quest;
 
     TextView profession, question_text;
-
+    Ainimator animator = new Ainimator();
     TextView lvl_text;
+
+     MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,15 +56,49 @@ public class MainActivity extends AppCompatActivity {
         an2 = findViewById(R.id.an2);
         an3 = findViewById(R.id.an3);
         an4 = findViewById(R.id.an4);
-        lvl_text = findViewById(R.id.lvl_text);
 
+        image_quest =  findViewById(R.id.image_quest);
+        lvl_text = findViewById(R.id.lvl_text);
+        animation_container = findViewById(R.id.animation_container);
         // Инициализация кнопок с их исходным фоном
         setupButton(an1);
         setupButton(an2);
         setupButton(an3);
         setupButton(an4);
+        mp = MediaPlayer.create(this, R.raw.music);
+        mp.start();
+
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(mp.isPlaying())
+            mp.pause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(!mp.isPlaying())
+            mp.start();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mp.stop();
+        mp.release();
+    }
+    public void control_music(View view){
+        if(mp.isPlaying()){
+            mp.pause();
+            ((ImageView) view).setImageResource(R.drawable.nosound);
+        }else {
+            mp.start();
+            ((ImageView) view).setImageResource(R.drawable.sound);
+        }
+    }
     /**
      * Метод для установки начальных параметров кнопки
      *
@@ -65,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         button.setTextColor(Color.WHITE);
     }
 
-    /**
+     /**
      * Метод для изменения цвета заливки кнопки, сохраняя скруглённые углы
      *
      * @param button Кнопка, цвет которой нужно изменить
@@ -87,12 +131,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void set_data() {
         if (questions != null && varinats != null && current_lvl < questions.length) {
+            image_quest.setImageResource(question.imgs[question.cur_prof_num][current_lvl]);
             question_text.setText(questions[current_lvl]);
             an1.setText(varinats[current_lvl][0]);
             an2.setText(varinats[current_lvl][1]);
             an3.setText(varinats[current_lvl][2]);
             an4.setText(varinats[current_lvl][3]);
         }
+
     }
 
     public void select_quetion(View view) {
@@ -113,7 +159,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void answer(View view) {
-        Log.d("MainActivity", "Button clicked: " + view.getId());
 
         // Отключаем все кнопки ответов, чтобы предотвратить повторные нажатия
         an1.setEnabled(false);
@@ -131,6 +176,7 @@ public class MainActivity extends AppCompatActivity {
                     lvl_text.setText(String.valueOf(stars));
                     setButtonColor(selectedButton, Color.GREEN); // Изменяем цвет на зелёный
                     isCorrect = true;
+                    animator.startAtomAnimation(animation_container, this);
                     Log.d("MainActivity", "Correct answer. Stars: " + stars);
                 } else {
                     setButtonColor(selectedButton, Color.RED); // Изменяем цвет на красный
@@ -146,9 +192,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 // Сбрасываем цвет кнопки к исходному состоянию
                 resetButtonColor(selectedButton);
-
                 current_lvl++;
-
                 if (current_lvl < 5) { // Проверяем, есть ли ещё вопросы
                     set_data();
                     // Включаем кнопки ответов снова
@@ -157,15 +201,18 @@ public class MainActivity extends AppCompatActivity {
                     an3.setEnabled(true);
                     an4.setEnabled(true);
                 } else {
-                    if(stars >=3){
-                        an1.setEnabled(true);
-                        an2.setEnabled(true);
-                        an3.setEnabled(true);
-                        an4.setEnabled(true);
+                    an1.setEnabled(true);
+                    an2.setEnabled(true);
+                    an3.setEnabled(true);
+                    an4.setEnabled(true);
+                    if(stars >3)
                         current_window = findViewById(R.id.window_best);
-                        location_quest.setVisibility(View.GONE);
-                        current_window.setVisibility(View.VISIBLE);
-                    }
+                    else if(stars<=3 && stars>=2)
+                        current_window = findViewById(R.id.good);
+                    else
+                        current_window = findViewById(R.id.bad_window);
+                    location_quest.setVisibility(View.GONE);
+                    current_window.setVisibility(View.VISIBLE);
                 }
             }
         }, 1000); // Задержка в 1 секунду
@@ -188,7 +235,15 @@ public class MainActivity extends AppCompatActivity {
     }
     public  void back_from_res(View view){
         current_window.setVisibility(View.GONE);
+        current_window = null;
         location_main.setVisibility(View.VISIBLE);
         reset_all();
     }
+
+    public void open_web(View view){
+        String url = "https://www.mediafire.com/view/aago5ab7c8gwydl/f91c2e4b-9327-4c62-b424-b0556878ce16.jfif/file";
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        startActivity(browserIntent);
+    }
+
 }

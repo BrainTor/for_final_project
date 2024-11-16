@@ -1,14 +1,39 @@
 package com.example.forthefinal;
 
+import android.util.Log;
+
+
 public class Question {
     private String professionName;
     private String[] questions;
     private String[][] options;
     private int[] correctAnswers;
 
+    public  int cur_prof_num;
+    public int[][] imgs = {
+            {
+                    R.drawable.q1, R.drawable.q2, R.drawable.q3,  R.drawable.q4,  R.drawable.q5
+            },
+            {
+                    R.drawable.q10,R.drawable.q11,R.drawable.q12,R.drawable.q13,R.drawable.q14
+            },
+            {
+                    R.drawable.q20,R.drawable.q21,R.drawable.q22,R.drawable.q23,R.drawable.q24
+            },
+            {
+                    R.drawable.q30,R.drawable.q5,R.drawable.q32,R.drawable.q33,R.drawable.q21
+            },
+            {
+                    R.drawable.q40,R.drawable.q41,R.drawable.q42,R.drawable.q43,R.drawable.q44
+            }
+    } ;
+
+
     public Question(int professionNumber) {
+
         switch (professionNumber) {
             case 0:
+                cur_prof_num = 0;
                 professionName = "Инженер по эксплуатации атомных электростанций";
                 questions = new String[]{
                         "Какова основная задача инженера по эксплуатации атомной электростанции?",
@@ -29,6 +54,9 @@ public class Question {
                 };
                 break;
             case 1:
+
+                cur_prof_num = 1;
+                Log.d("Test", cur_prof_num + "");
                 professionName = "Инженер по радиационной безопасности";
                 questions = new String[]{
                         "Какова основная задача инженера по радиационной безопасности на атомном предприятии?",
@@ -50,6 +78,7 @@ public class Question {
                 break;
 
             case 2:
+                cur_prof_num = 2;
                 professionName = "Специалист по ядерной медицине";
                 questions = new String[]{
                         "Что является основным направлением работы специалиста по ядерной медицине?",
@@ -70,6 +99,7 @@ public class Question {
                 };
                 break;
             case 3:
+                cur_prof_num = 3;
                 professionName = "Инженер по ядерному топливу";
 
                 questions = new String[]{
@@ -91,6 +121,7 @@ public class Question {
                 };
             break;
             case 4:
+                cur_prof_num = 4;
                 professionName = "Физик-ядерщик";
 
                 questions = new String[]{
