@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     int[] correct_variant;
     FrameLayout animation_container;
     Button an1, an2, an3, an4;
-
+    int music_length = 0;
     LinearLayout location_main, location_quest;
 
     TextView profession, question_text;
@@ -66,30 +66,53 @@ public class MainActivity extends AppCompatActivity {
         setupButton(an3);
         setupButton(an4);
         mp = MediaPlayer.create(this, R.raw.music);
-        mp.start();
+        mp.setLooping(true); // Optional: Loop the music
 
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
-        if(mp.isPlaying())
-            mp.pause();
+    protected void onStart() {
+        super.onStart();
+        if (mp == null) {
+            mp = MediaPlayer.create(this, R.raw.music);
+            mp.setLooping(true); // Optional: Loop the music
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if(!mp.isPlaying())
+        if (mp != null && !mp.isPlaying()) {
             mp.start();
+            mp.seekTo(music_length);
+        }
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-        mp.stop();
-        mp.release();
+    protected void onPause() {
+        super.onPause();
+        if (mp != null && mp.isPlaying()) {
+            music_length = mp.getCurrentPosition();
+            mp.pause();
+
+        }
     }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mp != null) {
+            if (mp.isPlaying()) {
+                mp.stop();
+            }
+            music_length = 0;
+            mp.release();
+            mp = null;
+        }
+    }
+
+
     public void control_music(View view){
         if(mp.isPlaying()){
             mp.pause();
